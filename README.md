@@ -1,1 +1,9 @@
-# devops_test
+This is a Project based on the first 8 days of DevOps Assembly Lines training under our mentor Vimal Daga Sir and In this project I have made a Project which can help an organisation maintain their WebApp or Application Software with multiple developers working on it with Agile Automation using Git, Github, Docker & Jenkins.
+
+I have created 3 Jobs in jenkins which have different work assigned to each one of them. The first job in jenkins is named job1 and it keeps tracking our github repository of the project of master branch which has the tested code by our Quality Assurance Team (QAT) and as soon as any changes are made to that master branch and the developer pushed the new changes to github, github sends a notification to our jenkins that some new changes are there which triggers jenkins job1 and it automatically downloads that code from github and deploy it on our production server running on docker containers
+
+The seconds job in jenkins is named job2 which is assigned the job to keep tracking the other branch in github that is by dev1 (the other developer working on the same project) and if that developer makes any changes and pushed the code to github, github again sends a notification to our jenkins that there are new changes in the repository, which triggers our job2 of jenkins and jenkins automatically downloads that code from the github and automatically deploys it on our testing server running on other docker container for the QAT to check if the new features added by dev1 are working fine.
+
+If the new features are working fine, the quality assurance triggers job3 of jenkins which automatically merges the code of dev1 with the master branch and then push it to github, now as master branch is changed, with the notification of github, job1 gets triggered and it automatically deploys the new code to our production environment and this way most of the manual work is automatically done by our jenkins.
+
+At the time of deployment, our jobs also checks if our severs on docker containers are running or not, if not, our jobs automatically launches the server and deploys the project on it.
